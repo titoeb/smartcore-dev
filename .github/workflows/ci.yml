@@ -4,12 +4,12 @@ on:
   push:
     branches: [ main, development ]
   pull_request:
-    branches: [ development ]
 
 jobs:
   tests:
     runs-on: "${{ matrix.platform.os }}-latest"
     strategy:
+      fail-fast: false
       matrix:
         platform: [
           { os: "windows", target: "x86_64-pc-windows-msvc" },
